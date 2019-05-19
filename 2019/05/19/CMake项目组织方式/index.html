@@ -128,18 +128,18 @@
 
 
 
-  <meta name="description" content="获取安卓源码的途径大致分为三个：  repo； 网盘流； 使用自动化脚本获取；">
+  <meta name="description" content="最近在网上发现一种 CMake 的项目结构，觉得很适合各种大小型的项目，因此记录一下。 下面是项目的目录结构123456789101112lua-demo├─ CMakelists.txt           -- 顶级 CMakeLists，相当于 Maven 项目的顶级 Parent 工程├─ executable               -- 需要生成执行文件的模块，通常是自己的代码│">
 <meta name="keywords" content="Tool">
 <meta property="og:type" content="article">
-<meta property="og:title" content="获取安卓源码">
-<meta property="og:url" content="http://yoursite.com/2019/04/18/获取安卓源码/index.html">
+<meta property="og:title" content="CMake 项目组织方式">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/CMake项目组织方式/index.html">
 <meta property="og:site_name" content="落地开花的笔记本">
-<meta property="og:description" content="获取安卓源码的途径大致分为三个：  repo； 网盘流； 使用自动化脚本获取；">
+<meta property="og:description" content="最近在网上发现一种 CMake 的项目结构，觉得很适合各种大小型的项目，因此记录一下。 下面是项目的目录结构123456789101112lua-demo├─ CMakelists.txt           -- 顶级 CMakeLists，相当于 Maven 项目的顶级 Parent 工程├─ executable               -- 需要生成执行文件的模块，通常是自己的代码│">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-20T07:54:59.574Z">
+<meta property="og:updated_time" content="2019-05-19T16:14:45.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="获取安卓源码">
-<meta name="twitter:description" content="获取安卓源码的途径大致分为三个：  repo； 网盘流； 使用自动化脚本获取；">
+<meta name="twitter:title" content="CMake 项目组织方式">
+<meta name="twitter:description" content="最近在网上发现一种 CMake 的项目结构，觉得很适合各种大小型的项目，因此记录一下。 下面是项目的目录结构123456789101112lua-demo├─ CMakelists.txt           -- 顶级 CMakeLists，相当于 Maven 项目的顶级 Parent 工程├─ executable               -- 需要生成执行文件的模块，通常是自己的代码│">
 
 
 
@@ -147,7 +147,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/18/获取安卓源码/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/CMake项目组织方式/">
 
 
 
@@ -157,7 +157,7 @@
   };
 </script>
 
-  <title>获取安卓源码 | 落地开花的笔记本</title>
+  <title>CMake 项目组织方式 | 落地开花的笔记本</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/获取安卓源码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/CMake项目组织方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="落地开花">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">获取安卓源码
+          <h1 class="post-title" itemprop="name headline">CMake 项目组织方式
 
               
             
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="创建时间：04-18-2019 23:11:31" itemprop="dateCreated datePublished" datetime="2019-04-18T23:11:31+08:00">04-18-2019</time>
+              <time title="创建时间：05-19-2019 23:40:34" itemprop="dateCreated datePublished" datetime="2019-05-19T23:40:34+08:00">05-19-2019</time>
             
 
             
@@ -420,7 +420,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：04-20-2019 15:54:59" itemprop="dateModified" datetime="2019-04-20T15:54:59+08:00">04-20-2019</time>
+                <time title="修改时间：05-20-2019 00:14:45" itemprop="dateModified" datetime="2019-05-20T00:14:45+08:00">05-20-2019</time>
               
             
           </span>
@@ -438,13 +438,6 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -479,31 +472,12 @@
       
 
       
-        <p>获取安卓源码的途径大致分为三个：</p>
-<ol>
-<li><a href="https://gerrit.googlesource.com/git-repo/" target="_blank" rel="noopener">repo</a>；</li>
-<li>网盘流；</li>
-<li>使用自动化脚本获取；<a id="more"></a>
-每种途径的特点：</li>
-<li>repo：谷歌官方推荐使用，功能完善而且强大，基于 Python 2.7，但是克隆的源码十分巨大，高版本的系统源码高达上百G；</li>
-<li>网盘流：简单粗暴，不过经常遇到网盘限速问题；</li>
-<li>自动化脚本：灵活自由，需要写脚本；</li>
-</ol>
-<blockquote>
-<p>网络上能找到的许多克隆源码的 Python 脚本一般都十分简陋，只能克隆 master 分支，并且无法指定深度等等</p>
-</blockquote>
-<p>脚本使用流程：</p>
-<ol>
-<li>环境： python3.7.2，git（正确配置环境变量）；</li>
-<li><p>克隆 manifest 仓库，需要翻一翻，不推荐使用清华镜像源的地址，似乎会缺少一些东西；</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://android.googlesource.com/platform/manifest.git android_manifest</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 manifest 文件夹同级的目录下新建 python 脚本，内容如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> xml.dom.minidom</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> call</span><br><span class="line"></span><br><span class="line">GitRepo = namedtuple(<span class="string">'GitRepo'</span>, <span class="string">'path,name,groups'</span>.split(<span class="string">','</span>))</span><br><span class="line"></span><br><span class="line">git_bin = <span class="string">'git'</span></span><br><span class="line">git_clone = <span class="string">'clone'</span></span><br><span class="line">git_checkout = <span class="string">'checkout'</span></span><br><span class="line">git_depth = <span class="string">'1'</span> <span class="comment"># 设置需要克隆的深度，通常只需要最浅的 1 即可</span></span><br><span class="line">git_branch = <span class="string">'android-6.0.1_r81'</span> <span class="comment"># 设置需要克隆的源码分支</span></span><br><span class="line">git_prefix = <span class="string">'https://aosp.tuna.tsinghua.edu.cn/'</span> <span class="comment"># 克隆源码使用清华镜像，加速克隆</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">walk_projects</span><span class="params">(dom)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> dom.getElementsByTagName(<span class="string">"project"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">walk_attrs</span><span class="params">(node)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> GitRepo(node.getAttribute(<span class="string">'path'</span>), node.getAttribute(<span class="string">'name'</span>), [group <span class="keyword">for</span> group <span class="keyword">in</span> node.getAttribute(<span class="string">'groups'</span>).split(<span class="string">','</span>) <span class="keyword">if</span> group != <span class="string">''</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_branch</span><span class="params">(manifest_dir, branch_name)</span>:</span></span><br><span class="line">    args = [git_bin, git_checkout, branch_name]</span><br><span class="line">    subprocess.check_call(args, cwd=manifest_dir)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_project_root</span><span class="params">(manifest_xml)</span>:</span></span><br><span class="line">    dom = xml.dom.minidom.parse(manifest_xml)</span><br><span class="line">    <span class="keyword">return</span> dom.documentElement</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_args</span><span class="params">(repo_path, repo_dest)</span>:</span></span><br><span class="line">    args = [git_bin, git_clone, git_prefix + repo_path]</span><br><span class="line">    <span class="keyword">if</span> git_branch:</span><br><span class="line">        args.append(<span class="string">'-b'</span>)</span><br><span class="line">        args.append(git_branch)</span><br><span class="line">    <span class="keyword">if</span> git_depth:</span><br><span class="line">        args.append(<span class="string">'--depth'</span>)</span><br><span class="line">        args.append(git_depth)</span><br><span class="line">    args.append(repo_dest)</span><br><span class="line">    <span class="keyword">return</span> args</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(manifest_dir)</span>:</span></span><br><span class="line">    manifest_dir = os.path.abspath(manifest_dir)</span><br><span class="line">    curr_dir = os.getcwd()</span><br><span class="line">    work_dir = os.path.join(curr_dir, git_branch)</span><br><span class="line">    manifest_xml = os.path.join(manifest_dir, <span class="string">'default.xml'</span>)</span><br><span class="line"></span><br><span class="line">    switch_branch(manifest_dir, git_branch)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(work_dir):</span><br><span class="line">        os.mkdir(work_dir)</span><br><span class="line"></span><br><span class="line">    root = parse_project_root(manifest_xml)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'Working in &#123;&#125; ...'</span>.format(work_dir))</span><br><span class="line"></span><br><span class="line">    failed_repo = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> repo <span class="keyword">in</span> (repo <span class="keyword">for</span> repo <span class="keyword">in</span> (walk_attrs(project) <span class="keyword">for</span> project <span class="keyword">in</span> walk_projects(root))):</span><br><span class="line">        args = build_clone_args(repo.name, repo.path)</span><br><span class="line">        p = subprocess.Popen(args, cwd=work_dir, bufsize=<span class="number">-1</span>, stderr=subprocess.PIPE)</span><br><span class="line">        p.wait()</span><br><span class="line"></span><br><span class="line">        error_text = str(p.stderr.read().strip(), encoding=<span class="string">'utf8'</span>)</span><br><span class="line">        print(error_text)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> p.returncode != <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">not</span> re.match(re_error_ignore, error_text, re.MULTILINE):</span><br><span class="line">            failed_repo.append(repo)</span><br><span class="line">    <span class="keyword">if</span> len(failed_repo) != <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Failed list begin &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'</span>)</span><br><span class="line">        <span class="keyword">for</span> repo <span class="keyword">in</span> failed_repo:</span><br><span class="line">            print(repo)</span><br><span class="line">        print(<span class="string">'&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; Failed list end   &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main(<span class="string">'./android_manifest/'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行脚本然后等待完成，可能某些模块会失败，因为指定的分支不存在，通常是不怎么重要的模块，可以查看控制台输出手动处理；</p>
-</li>
-</ol>
+        <p>最近在网上发现一种 CMake 的项目结构，觉得很适合各种大小型的项目，因此记录一下。</p>
+<p>下面是项目的目录结构<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">lua-demo</span><br><span class="line">├─ CMakelists<span class="selector-class">.txt</span>           -- 顶级 CMakeLists，相当于 Maven 项目的顶级 Parent 工程</span><br><span class="line">├─ executable               -- 需要生成执行文件的模块，通常是自己的代码</span><br><span class="line">│    ├─ CMakelists<span class="selector-class">.txt</span>      -- 编译可执行文件，此处可以依赖其他模块，例如下面的 lua</span><br><span class="line">│    └─ src</span><br><span class="line">│           ├─ ...</span><br><span class="line">│           └─ main.cpp</span><br><span class="line">└─ lua                      -- 源代码形式引用的第三方框架代码，可能会存在多个这种模块，甚至多个可执行文件模块</span><br><span class="line">       ├─ CMakelists<span class="selector-class">.txt</span>    -- 模块 CMakeLists 文件，地位等同于 executable 中的同名文件</span><br><span class="line">       ├─ lapi.c</span><br><span class="line">       ├─ ...</span><br><span class="line">       └─ lzio.h</span><br></pre></td></tr></table></figure></p>
+<p>其中顶级的 CMakeLists 文件内容如下：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>.<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(lua-demo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_DISABLE_IN_SOURCE_BUILD <span class="keyword">ON</span>) <span class="comment"># 禁止 in source 方式编译</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_DISABLE_SOURCE_CHANGES  <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="string">"$&#123;CMAKE_SOURCE_DIR&#125;"</span> <span class="keyword">STREQUAL</span> <span class="string">"$&#123;CMAKE_BINARY_DIR&#125;"</span>)</span><br><span class="line">  <span class="keyword">message</span>(SEND_ERROR <span class="string">"In-source builds are not allowed."</span>)</span><br><span class="line"><span class="keyword">endif</span> ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_VERBOSE_MAKEFILE <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_COLOR_MAKEFILE   <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (WIN32)</span><br><span class="line">  <span class="keyword">set</span>(CMAKE_SHARED_LIBRARY_PREFIX <span class="string">""</span>) <span class="comment"># Windows 平台去除库文件名的 lib 头</span></span><br><span class="line"><span class="keyword">endif</span> ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lua) <span class="comment"># 将 lua 模块纳入编译</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/executable) <span class="comment"># 将 executable 模块纳入编译</span></span><br></pre></td></tr></table></figure></p>
+<p>Lua 模块的 CMakeList 文件如下：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>.<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(lua)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_definitions</span>(-DLUA_COMPAT_5_2)</span><br><span class="line"><span class="keyword">if</span>(WIN32)</span><br><span class="line">    <span class="keyword">add_definitions</span>(-D_CRT_SECURE_NO_WARNINGS -DLUA_BUILD_AS_DLL)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_FLAGS <span class="string">"$&#123;CMAKE_C_FLAGS&#125; -O2"</span>)</span><br><span class="line"><span class="keyword">set</span>(LUAC_PATH <span class="string">"src/lua.c"</span>)</span><br><span class="line"><span class="keyword">set</span>(LUACC_PATH <span class="string">"src/luac.c"</span>)</span><br><span class="line"><span class="comment"># 将自身的头文件配置成环境变量暴露出去，只要有模块引用了就可以使用这个变量</span></span><br><span class="line"><span class="keyword">set</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span>_INCLUDE_DIRS <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span> CACHE INTERNAL <span class="string">"$&#123;PROJECT_NAME&#125;: Include Directories"</span> FORCE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">aux_source_directory</span>(<span class="string">"."</span> SRC_FILES)</span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span>(REMOVE_ITEM SRC_FILES <span class="variable">$&#123;LUAC_PATH&#125;</span> <span class="variable">$&#123;LUACC_PATH&#125;</span>) <span class="comment"># 编译成静态库不需要这两个源文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> STATIC <span class="variable">$&#123;SRC_FILES&#125;</span>)</span><br></pre></td></tr></table></figure></p>
+<p>executable 模块的 CMakeList：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>.<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(lua-demo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">aux_source_directory</span>(src src_files)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;lua_INCLUDE_DIRS&#125;</span>) <span class="comment"># 添加 lua 的头文件路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;src_files&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> lua) <span class="comment"># 链接 lua 静态库</span></span><br></pre></td></tr></table></figure></p>
+<p>采用这种项目结构就可以很简单地增加模块而不需要对现有的模块进行改动，属于一种水平方向的拓展。</p>
 
       
     </div>
@@ -540,15 +514,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/20/SubscribeOn源码分析/" rel="next" title="SubscribeOn源码分析">
+                <i class="fa fa-chevron-left"></i> SubscribeOn源码分析
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/20/SubscribeOn源码分析/" rel="prev" title="SubscribeOn源码分析">
-                SubscribeOn源码分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
